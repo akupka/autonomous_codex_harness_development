@@ -1,3 +1,4 @@
+[English version README.md here](README_english.md)
 # Autonomer Agent Harness (Spec → Tests → Git → „until green“)
 
 Dieses Repository enthält einen kleinen **Harness**, der einen autonomen Entwicklungs-Agenten steuert. Ziel ist es, ein Projekt anhand einer Spezifikation (`app_spec.txt`) und einer **testbaren Feature-/Testliste** (`feature_list.json`) iterativ so lange weiterzuentwickeln, bis **alle Tests grün** sind.

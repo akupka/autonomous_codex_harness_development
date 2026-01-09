@@ -1,0 +1,183 @@
+# app_spec.txt – Spezifikation (Template)
+
+> Zweck: Diese Datei ist die **zentrale Quelle** für Anforderungen. Der Initializer nutzt sie, um u.a.
+> - den Testkatalog `feature_list.json` zu generieren,
+> - ein `init.sh` (Dev-Setup/Start) zu erzeugen,
+> - Projektstruktur/README/Git-Baseline anzulegen.
+>
+> Fülle die [TODO]-Felder aus. Wenn du etwas (noch) nicht weißt, schreibe eine **Annahme** dazu.
+
+---
+
+## 1) Überblick
+
+- **Produktname:** [TODO]
+- **Kurzbeschreibung (1–3 Sätze):** [TODO]
+- **Zielgruppe / Nutzer:** [TODO]
+- **Hauptnutzen / Problem:** [TODO]
+- **Plattform:** [TODO: Web-App / Desktop / Mobile / CLI]
+- **Sprachen/Locale:** [TODO: z.B. de-DE, en-US]
+
+---
+
+## 2) Ziele und Nicht-Ziele
+
+### Ziele (Must)
+- [TODO]
+- [TODO]
+
+### Nicht-Ziele (Explizit out-of-scope)
+- [TODO]
+- [TODO]
+
+---
+
+## 3) Rollen, Authentifizierung und Berechtigungen
+
+- **Authentifizierung:** [TODO: z.B. Email+Passwort, OAuth, SSO, ohne Login]
+- **Rollen:**
+  - **Rolle A:** [TODO] – Rechte: [TODO]
+  - **Rolle B:** [TODO] – Rechte: [TODO]
+
+**Berechtigungsregeln (konkret):**
+- [TODO: z.B. „Nur Admins dürfen X; normale Nutzer dürfen nur eigene Datensätze sehen.“]
+
+---
+
+## 4) Kern-User-Flows (End-to-End)
+
+> Beschreibe die wichtigsten Flows so, dass daraus Tests mit klaren Schritten entstehen können.
+
+### Flow 1: [TODO: Name]
+- **Ziel:** [TODO]
+- **Vorbedingungen:** [TODO]
+- **Schritte:**
+  1. [TODO]
+  2. [TODO]
+  3. [TODO]
+- **Erwartetes Ergebnis:** [TODO]
+
+### Flow 2: [TODO]
+- (gleiches Schema)
+
+---
+
+## 5) Funktionen (Functional Requirements)
+
+### Must-have (MVP)
+- [TODO]
+- [TODO]
+
+### Should-have (kurz danach)
+- [TODO]
+
+### Nice-to-have (optional)
+- [TODO]
+
+**Validierungen / Business Rules:**
+- [TODO: z.B. E-Mail eindeutig, Passwort-Regeln, Pflichtfelder, Limits, Statusübergänge]
+
+**Fehlerfälle / Edge Cases:**
+- [TODO: z.B. ungültige Eingabe, fehlende Rechte, Netzwerkfehler, leere Listen]
+
+---
+
+## 6) UI/UX Anforderungen (Style Requirements)
+
+- **Look & Feel:** [TODO: z.B. clean/modern, Corporate Design, minimalistisch]
+- **Layout/Navigation:** [TODO]
+- **Responsiveness:** [TODO: z.B. mobile-first, Breakpoints]
+- **Accessibility:** [TODO: z.B. WCAG AA, Tastaturbedienung, Kontrast]
+- **Zustände:** [TODO: Loading/Empty/Error/Success]
+- **Form-UX:** [TODO: Inline-Validation, Fehlermeldungen, Fokusführung]
+- **Keine-Konsole-Fehler:** [TODO: ja/nein]
+- **Design System / Komponenten:** [TODO: Button, Input, Modal, Toast, Table, etc.]
+
+---
+
+## 7) Seiten / Routen / Navigation
+
+> Liste alle Seiten. Für jede Seite: Zweck, wichtige UI-Elemente, Aktionen, Validierungen.
+
+### Seite: [TODO: z.B. /login]
+- **Zweck:** [TODO]
+- **Elemente:** [TODO]
+- **Aktionen:** [TODO]
+- **Validierungen/Fehler:** [TODO]
+
+### Seite: [TODO: z.B. /dashboard]
+- …
+
+---
+
+## 8) Datenmodell
+
+> Nur so detailliert, dass CRUD/Validierungen/Beziehungen testbar sind.
+
+### Entität: [TODO]
+- Felder:
+  - `id`: [TODO]
+  - `[TODO feld]`: [TODO Datentyp + Regeln]
+- Beziehungen:
+  - [TODO]
+
+---
+
+## 9) Backend / API (falls vorhanden)
+
+- **Backend vorhanden?** [TODO: ja/nein]
+- **Auth an API:** [TODO]
+- **Endpoints (Beispiele):**
+  - `GET /api/...` – Beschreibung: [TODO]
+  - `POST /api/...` – Request/Response: [TODO]
+- **Fehlercodes / Fehlermeldungen:** [TODO]
+- **Rate Limiting / Security:** [TODO]
+
+---
+
+## 10) Integrationen (optional)
+
+- [TODO: z.B. E-Mail Versand, Payment, OAuth Provider, Webhooks]
+- Details pro Integration:
+  - Zweck: [TODO]
+  - Konfiguration: [TODO]
+  - Fehlerfälle: [TODO]
+
+---
+
+## 11) Tech Stack & Lokales Setup
+
+> Damit `init.sh` korrekt sein kann, muss hier stehen, **wie man lokal startet**.
+
+- **Frontend:** [TODO: Framework + Version optional]
+- **Backend:** [TODO]
+- **Datenbank:** [TODO]
+- **Paketmanager:** [TODO: npm/pnpm/yarn/poetry/pip]
+- **Lokale Start-Kommandos:**
+  - Install: `[TODO: z.B. npm install]`
+  - Dev-Start: `[TODO: z.B. npm run dev]`
+  - Backend-Start: `[TODO]`
+  - DB Start (falls): `[TODO: docker compose up -d]`
+- **Standard-Ports/URLs:** [TODO: z.B. http://localhost:3000]
+
+---
+
+## 12) Observability (optional, aber hilfreich)
+
+- Logging: [TODO]
+- Fehlertracking: [TODO]
+- Metriken: [TODO]
+
+---
+
+## 13) Datenschutz/Sicherheit (optional)
+
+- Sensible Daten: [TODO]
+- Aufbewahrung / Audit: [TODO]
+- Rechtekonzept: [TODO]
+
+---
+
+## 14) Abnahmekriterien (Definition of Done)
+
+- [TODO: „Alle Tests in feature_list.json auf passes:true“, „Keine Konsolenfehler“, „UI entspricht Anforderungen“]

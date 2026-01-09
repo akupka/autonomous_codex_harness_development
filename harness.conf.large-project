@@ -1,0 +1,61 @@
+# Beispiel-Konfiguration für GROSSE Projekte
+# Kopiere diese Datei nach harness.conf und passe sie an
+
+# ============================================
+# Test & Feature Management
+# ============================================
+
+# Bei großen Projekten: viele Tests
+test_case_limit=500
+
+# ============================================
+# Codex / LLM Settings
+# ============================================
+
+codex_model=
+
+# Prompt-Dateien
+cycle_prompt_file=coding_prompt.md
+init_prompt_file=init_prompt.md
+
+# ============================================
+# Context Building
+# ============================================
+
+# Größere Limits für umfangreichen Context
+max_files=300
+max_file_bytes=300000
+max_git_log_lines=100
+
+# ============================================
+# Loop Settings
+# ============================================
+
+# Mehr Zeit zwischen Cycles für große Builds
+sleep_secs=5
+
+# Sehr viele Iterationen
+max_iterations=99999
+
+# Weniger Fehler-Toleranz (soll stabil laufen)
+max_errors=3
+
+# Längerer Timeout (60 Min)
+cycle_timeout=3600
+
+# ============================================
+# Git Integration
+# ============================================
+
+# Auto-Push für kontinuierliche Integration
+push_each_cycle=1
+
+git_remote=origin
+git_branch=
+
+# ============================================
+# Logging
+# ============================================
+
+log_dir=logs
+log_level=INFO

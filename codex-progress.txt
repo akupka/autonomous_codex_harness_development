@@ -1,0 +1,10 @@
+- Read app_spec.txt and generated feature_list.json with 200 tests.
+- Created initial project structure under backend/, frontend/, infra/.
+- Added minimal FastAPI skeleton and requirements in backend/.
+- Added init.sh for environment setup and startup guidance.
+- Rewrote README.md for project overview and setup.
+
+Next steps:
+- Confirm how to handle existing modified files in the repo before committing.
+- Initialize frontend scaffolding (Vite/React) and backend API skeleton beyond /health.
+- Add Makefile and docker-compose for Postgres/MinIO if desired.

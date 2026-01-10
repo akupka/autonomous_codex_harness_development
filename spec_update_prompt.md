@@ -12,6 +12,7 @@ GOAL:
 - Create a NEW feature_list.json that matches the UPDATED app_spec.txt.
 - Keep the file format compatible with run_until_green.sh (list of tests, each has "passes": false/true).
 - Minimum 200 tests, include both functional and style tests, and at least 25 tests with 10+ steps.
+- Initialize all tests with "passes": false. The app_spec "passes:true" line is the target state after implementation, not the starting state.
 
 RULES:
 - Do NOT delete application code.

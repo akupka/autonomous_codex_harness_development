@@ -52,6 +52,15 @@ Damit `run_init.sh`, `run_cycle.sh` und `run_until_green.sh` laufen, müssen fol
   Wird von `run_init.sh` und `run_cycle.sh` verwendet (`codex exec --yolo`).
 - **Python 3** (`python3`)  
   Wird von `run_until_green.sh` und den Skripten genutzt.
+- **Python-Pakete:** Keine externen Libraries nötig (nur Standardbibliothek).  
+  Optional: `pip install -r requirements.txt` (bleibt bewusst leer).
+
+Optional: Virtuelle Umgebung für Python
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 - **Git** (`git`)  
   Wird für den Audit-Trail (Commits) benötigt; außerdem für optionales Auto-Push.
 - **OpenSSH-Tools** (`ssh-agent`, `ssh-add`)  

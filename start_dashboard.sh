@@ -12,5 +12,5 @@ echo ""
 echo "    Press Ctrl+C to stop"
 echo ""
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")"
 exec python3 scripts/dashboard.py "$PORT"

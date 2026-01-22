@@ -82,7 +82,7 @@ EOF
 ```
 
 **Wichtige Config-Parameter:**
-- `test_case_limit`: Anzahl der Tests (20-50 für kleine Projekte, 200+ für große)
+- `test_case_limit`: (Legacy) Wird jetzt automatisch auf 1 gesetzt, da der Agent immer nur einen Test pro Cycle bearbeitet.
 - `push_each_cycle`: `0` = kein Auto-Push (gut für Entwicklung), `1` = Auto-Push nach jedem Cycle
 - `max_errors`: Wie viele Fehler toleriert werden bevor Stop
 - `cycle_timeout`: Max. Dauer eines Cycles in Sekunden (1800 = 30 Min)
@@ -368,12 +368,10 @@ cat logs/cycle_*_*.log | tail -100
 cycle_timeout=900  # 15 Minuten
 ```
 
-### Problem: Zu viele Tests, Agent überfordert
-
-**Lösung:** `test_case_limit` reduzieren:
-```
-test_case_limit=50  # Nur erste 50 Tests laden
-```
+### Problem: Agent findet Dateien nicht
+**Lösung:** Da der Agent in der neuen "Smart Context" Version nur minimalen Kontext erhält, muss er Dateien explizit lesen (`cat`). Wenn er halluziniert oder Dateien nicht findet:
+- Prüfe, ob die Dateipfade im Prompt korrekt sind
+- Ergänze im `coding_prompt.md` den Hinweis: "Use `ls -R` to find files if unsure."
 
 ---
 

@@ -222,13 +222,13 @@ Die Config-Datei wird automatisch von den Python-Skripten gelesen. Werte können
 
 | Parameter | Default | Beschreibung |
 |-----------|---------|--------------|
-| `test_case_limit` | 200 | Anzahl Tests in feature_list.json (0 = alle) |
-| `use_smart_test_limit` | 1 | Dynamische Test-Anzahl basierend auf Fehlern |
+| `test_case_limit` | (legacy) | Wird jetzt automatisch auf 1 gesetzt (Single Feature Focus) |
+| `use_smart_test_limit` | (legacy) | Automatisch aktiv |
 | `codex_model` | "" | LLM Model (z.B. "claude-sonnet-4.5") |
 | `cycle_prompt_file` | coding_prompt.md | Prompt für Implementierungs-Cycles |
 | `init_prompt_file` | init_prompt.md | Prompt für Initialisierung |
-| `max_files` | 200 | Max Dateien im Context |
-| `max_file_bytes` | 200000 | Max Bytes pro Datei |
+| `max_files` | (legacy) | Context wird jetzt dynamisch geladen |
+| `max_file_bytes` | 200000 | Max Bytes pro Datei (für manuelle cats) |
 | `sleep_secs` | 2 | Pause zwischen Cycles |
 | `max_iterations` | 9999 | Max Anzahl Cycles |
 | `max_errors` | 5 | Max Fehler bevor Stop |
@@ -415,27 +415,15 @@ Jeder Metric-Eintrag enthält einen Hash des `coding_prompt.md`:
 
 So kannst du nachvollziehen, welche Prompt-Version welche Ergebnisse lieferte.
 
-### 6. Smart Test Limit
+### 6. Smart Context Injection (New v2)
+Das Harness nutzt jetzt eine optimierte "Smart Context" Strategie, um Tokens zu sparen:
+- Anstatt hunderte Dateien zu laden, bekommt der Agent nur die `app_spec.txt` und **genau einen fehlgeschlagenen Test**.
+- Der Agent muss sich selbst Kontext beschaffen (via `ls`, `cat`), wenn er ihn braucht.
+- Das garantiert vollen Fokus auf eine "Atomic Task".
 
-Das Harness passt automatisch die Anzahl der Tests im Context an:
-
-- **Wenige Fehler (≤3):** Zeige mehr Context (bis zu 15 Tests)
-- **Viele Fehler:** Limitiere auf konfigurierten Wert
-
-```bash
-# In harness.conf
-use_smart_test_limit=1  # Aktivieren
-test_case_limit=30      # Fallback bei vielen Fehlern
-```
-
-### 7. Context Size Optimization
-
-Dateien werden nach Relevanz priorisiert:
-
-- **High Priority:** `.json`, `.md`, `.txt`, `package.json`
-- **Medium Priority:** Code-Dateien (`.py`, `.js`, `.ts`, etc.)
-- **Low Priority:** Styling/Config (`.css`, `.yml`)
-- **Failing Test Match:** +200 Punkte wenn Dateiname in Test erwähnt
+### 7. Token Efficiency
+Durch die Smart Context Strategie sinkt der Token-Verbrauch pro Cycle drastisch (oft < 2k Tokens für den Input), was längere Loops und geringere Kosten ermöglicht.
+Die Config-Werte `max_files`, `max_git_log_lines` und `test_case_limit` sind in dieser Version obsolet, da der Context dynamisch minimal gebaut wird.
 
 ### 8. Structured Commit Messages
 

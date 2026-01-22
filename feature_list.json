@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "category": "setup",
+      "description": "Initial setup test",
+      "steps": ["Check environment", "Verify files"],
+      "passes": false
+    }
+  ]
+}

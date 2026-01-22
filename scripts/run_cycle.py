@@ -4,7 +4,8 @@ import os
 import sys
 
 from scripts.config import load_config
-from scripts.legacy_cycle import run_legacy
+# from scripts.legacy_cycle import run_legacy
+from scripts.smart_cycle import run_smart_cycle
 
 
 def main() -> int:
@@ -14,7 +15,9 @@ def main() -> int:
     if env_override:
         prompt_file = env_override
     codex_model = str(config.get("codex_model", ""))
-    run_legacy(prompt_file, codex_model)
+    
+    # Switch to new smart cycle
+    run_smart_cycle(prompt_file, codex_model)
     return 0
 
 

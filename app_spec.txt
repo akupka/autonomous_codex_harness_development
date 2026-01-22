@@ -1,0 +1,6 @@
+# Dummy App Spec
+This is a placeholder specification for testing the harness.
+
+## Features
+- Login
+- Dashboard
